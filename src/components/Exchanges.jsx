@@ -4,11 +4,12 @@ import HTMLReactParser from 'html-react-parser';
 import { Row, Col, Collapse, Avatar, Typography } from 'antd';
 
 import { useGetCryptoExchangesQuery } from '../services/cryptoApi';
+import Loader from './Loader';
 
 const Exchanges = () => {
   const { data, isFetching } = useGetCryptoExchangesQuery();
 
-  if (isFetching) return 'Loading...';
+  if (isFetching) return <Loader />;
 
   const { Panel } = Collapse;
   const { Text } = Typography;
@@ -54,66 +55,3 @@ const Exchanges = () => {
 };
 
 export default Exchanges;
-
-// const Exchanges = () => {
-//   const { data, isFetching } = useGetCryptosQuery(100);
-//   const coins = data?.data?.coins;
-
-//   if (isFetching) return 'Loading...';
-
-//   const extractedData = coins.map((coin, idx) => {
-//     const tempData = {
-//       id: coin.id,
-//       name: coin.name,
-//       iconUrl: coin.iconUrl,
-//       numberOfMarkets: millify(coin.numberOfMarkets),
-//       change: coin.change + '%',
-//       volume: millify(coin.volume),
-//       description: coin.description,
-//     };
-
-//     return {
-//       key: tempData.id,
-//       exchangesCol: idx + 1 + '. ' + tempData.name,
-//       tradeVolume24hCol: tempData.volume,
-//       marketsCol: tempData.numberOfMarkets,
-//       changeCol: tempData.change,
-//       description: tempData.description,
-//     };
-//   });
-
-//   const columns = [
-//     {
-//       title: 'Exchanges',
-//       dataIndex: 'exchangesCol',
-//     },
-//     {
-//       title: '24h Trade Volume',
-//       dataIndex: 'tradeVolume24hCol',
-//     },
-//     {
-//       title: 'Markets',
-//       dataIndex: 'marketsCol',
-//     },
-//     {
-//       title: 'Change',
-//       dataIndex: 'changeCol',
-//     },
-//   ];
-
-//   return (
-//     <>
-//       <Table
-//         bordered
-//         columns={columns}
-//         dataSource={extractedData}
-//         expandable={{
-//           expandedRowRender: (coin) => HTMLReactParser(coin.description),
-//           expandRowByClick: true,
-//         }}
-//       />
-//     </>
-//   );
-// };
-
-// export default Exchanges;
