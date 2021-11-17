@@ -16,7 +16,7 @@ const Exchanges = () => {
 
   return (
     <>
-      <Row>
+      <Row className="exchange-header">
         <Col span={6}>Exchanges</Col>
         <Col span={6}>24h Trade Volume</Col>
         <Col span={6}>Markets</Col>

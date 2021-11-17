@@ -54,7 +54,7 @@ a:hover {
 }
 
 .logo {
-  margin: 0 0 0 15px;
+  margin: 12px 0 0 15px;
 }
 
 .logo a {
@@ -368,6 +368,11 @@ a:hover {
   margin-top: 0px !important;
 }
 
+.exchange-header {
+  margin-bottom: 5px;
+  margin-left: 2px;
+}
+
 .exchange-image {
   margin: 0px 10px !important;
 }
@@ -379,6 +384,8 @@ a:hover {
 
 .crypto-card-container {
   min-height: 65vh !important;
+  display: flex;
+  justify-content: center;
 }
 
 .crypto-card {
